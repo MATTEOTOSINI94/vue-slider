@@ -30,9 +30,34 @@ window.addEventListener("DOMContentLoaded", function (){
                 paragrafo:"lorem ipusm 5",
             }],
 
-            classCard: "active",
+            
 
             indexCounter: 0
+         },
+
+         methods :{
+// da rivedere
+            nextPic(){
+                
+                let newIndex = this.indexCounter + 1 
+                if (this.indexCounter === this.imgList.length -1 ) {
+                    newIndex = 0
+                }
+
+              this.indexCounter= newIndex
+            },
+
+            beforePic(){
+                let newIndex = this.indexCounter - 1 
+                if (newIndex < 0 ) {
+                    newIndex = this.imgList.length -1
+                }
+                 this.indexCounter= newIndex
+            },
+
+         },
+         mounted(){
+            setInterval(()=>{ this.nextPic() }, 3000);
          }
     })
 })
