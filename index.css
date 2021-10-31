@@ -56,12 +56,17 @@ p{
  
 }
 .arrow-su{
-    top: -45px;
     position: absolute;
     font-size: 40px;
+    top: -40px
+;
+    right: 50%;
+    transform: translate(50%);
 }
 .arrow-giù{
-    bottom: -45px;
     position: absolute;
     font-size: 40px;
+    bottom: -40px;
+    right: 50%;
+    transform: translate(50%);
 }

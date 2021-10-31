@@ -4,6 +4,7 @@ window.addEventListener("DOMContentLoaded", function (){
     app = new Vue({
          el: "#root",
          data:{
+             
             imgList:[{
                 url: 'img/01.jpg',
                 title:'Svezia',
@@ -30,21 +31,21 @@ window.addEventListener("DOMContentLoaded", function (){
                 paragrafo:"lorem ipusm 5",
             }],
 
-            
+            indexCounter: 0,
+            timer:"",
 
-            indexCounter: 0
+            
          },
 
          methods :{
-// da rivedere
-            nextPic(){
-                
-                let newIndex = this.indexCounter + 1 
-                if (this.indexCounter === this.imgList.length -1 ) {
-                    newIndex = 0
-                }
+            
+            
 
-              this.indexCounter= newIndex
+            nextPic(){
+                this.indexCounter++ 
+                if (this.indexCounter > this.imgList.length -1 ) {
+                    this.indexCounter = 0
+                }
             },
 
             beforePic(){
@@ -55,10 +56,31 @@ window.addEventListener("DOMContentLoaded", function (){
                  this.indexCounter= newIndex
             },
 
-         },
-         mounted(){
-            setInterval(()=>{ this.nextPic() }, 3000);
-         }
+            sliding(){
+              this.timer =  setInterval(()=>{
+                    this.nextPic(); {
+               }}, 3000);
+            },
+
+            stop(){
+                clearInterval(this.timer);    
+           },
+            
+        
+        },
+
+        
+
+
+       
+         
+
+       
+         
+       
+         
     })
+
+    
 })
 
