@@ -40,7 +40,6 @@ window.addEventListener("DOMContentLoaded", function (){
          methods :{
             
             
-
             nextPic(){
                 this.indexCounter++ 
                 if (this.indexCounter > this.imgList.length -1 ) {
@@ -49,11 +48,10 @@ window.addEventListener("DOMContentLoaded", function (){
             },
 
             beforePic(){
-                let newIndex = this.indexCounter - 1 
-                if (newIndex < 0 ) {
-                    newIndex = this.imgList.length -1
-                }
-                 this.indexCounter= newIndex
+                this.indexCounter--
+                if (this.indexCounter < 0 ) {
+                   this.indexCounter=this.imgList.length -1
+                }             
             },
 
             sliding(){
@@ -69,13 +67,11 @@ window.addEventListener("DOMContentLoaded", function (){
         
         },
 
-        
-
-
-       
-         
-
-       
+       mounted(){
+        this.sliding()
+        const sliderCont = document.getElementById("style-container")
+        sliderCont.focus()
+       }
          
        
          
