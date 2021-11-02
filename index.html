@@ -14,10 +14,10 @@
 </head>
 <body>
     <div id="root"  >
-        <h4 class="text-center">{{indexCounter + 1}}</h4>
+        
     <div class="container mt-5">
         <!-- tabindex per mettere il div in focus -->
-        <div class="row " tabindex="0" id="style-container" @keyup.left="beforePic()" @keyup.right="nextPic()">
+        <div class="row " tabindex="0" id="style-container" @keyup.down="nextPic()" @keyup.up="beforePic()">
             <div  id="main-box" class="col-10  box-img p-0"  @keyup='nextPic()'>
                 <div @mouseover="stop()" @mouseleave="sliding()"   class="card-left-container" v-for="elemento,indice in imgList" :class=" indice === indexCounter ? `active` : `` ">
                     <img  :src="elemento.url" :alt="indice + 1">
